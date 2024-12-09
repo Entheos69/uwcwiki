@@ -1,0 +1,1 @@
+web: gunicorn uwcwiki.wsgi --log-file -

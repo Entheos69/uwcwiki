@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Editar{% else %}Nuevo{% endif %} Artículo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Editar{% else %}Nuevo{% endif %} Artículo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+    <a href="{% url 'article_list' %}">Cancelar</a>
+</body>
+</html>

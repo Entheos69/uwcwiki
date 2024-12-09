@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }}</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <p>Autor: {{ article.author }}</p>
+    <p>Creado: {{ article.created_at }}</p>
+    <p>Actualizado: {{ article.updated_at }}</p>
+    <a href="{% url 'article_edit' article.pk %}">Editar</a>
+    <form action="{% url 'article_delete' article.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+    </form>
+    <a href="{% url 'article_list' %}">Volver a la lista</a>
+</body>
+</html>
